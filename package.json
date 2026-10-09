@@ -1,0 +1,81 @@
+{
+  "name": "@imprintjs-sdk/imprintjs",
+  "version": "0.1.0",
+  "description": "An open-source, lightweight fingerprinting engine for the modern web.",
+  "type": "module",
+  "keywords": [
+    "imprintjs",
+    "fingerprinting",
+    "browser-fingerprinting",
+    "browser-fingerprint",
+    "device-fingerprinting",
+    "device-fingerprint",
+    "visitor-identification",
+    "device-intelligence",
+    "web-security",
+    "fraud-detection",
+    "bot-detection",
+    "anomaly-detection"
+  ],
+  "author": "Pritam Adak (https://pritamadak.com)",
+  "license": "MIT",
+  "homepage": "https://imprintjs.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imprintjs/imprintjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imprintjs/imprintjs/issues"
+  },
+  "main": "./dist/imprint.cjs",
+  "module": "./dist/imprint.esm.js",
+  "types": "./dist/imprint.esm.d.ts",
+  "unpkg": "./dist/imprint.umd.js",
+  "exports": {
+    ".": {
+      "types": "./dist/imprint.esm.d.ts",
+      "import": "./dist/imprint.esm.js",
+      "require": "./dist/imprint.cjs"
+    },
+    "./umd": "./dist/imprint.umd.js",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist", 
+    "README.md", 
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "dev": "rollup -c -w",
+    "build": "npm run clean && rollup -c",
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.test.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:vectors": "python3 scripts/generate-vectors.py",
+    "test:browser": "node scripts/browser-smoke.mjs",
+    "analyze:stability": "node scripts/analyze-stability.mjs",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@rollup/plugin-replace": "^6.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/node": "^26.6.4",
+    "jsdom": "^30.1.2",
+    "puppeteer-core": "^25.13.0",
+    "rollup": "^4.64.3",
+    "rollup-plugin-dts": "^6.5.1",
+    "tslib": "^2.8.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
