@@ -55,13 +55,13 @@ export function hashBytes(bytes: Uint8Array, seed = 0): string {
 // Hashes a UTF-8 encoded string and 
 // Returns 32 lowercase hexadecimal characters.
 export function hash(input: string, seed = 0): string {
-    if (typeof input !== 'string') throw new TypeError('TypeError: hash() function expects a string.');
+    if (typeof input !== 'string') throw new TypeError('hash() expects a string.');
     return bytesToHex(murmur3x64_128(encodeUtf8(input), seed));
 }
 
 // Hashes a string and returns a base62-encoded string,
 // Of the specified length for visitor IDs. ({ Important })
 export function hashBase62(input: string, length = DEFAULT_VISITOR_ID_LENGTH, seed = 0) {
-    if (typeof input !== 'string') throw new TypeError('TypeError: hashBase62() function expects a string.');
+    if (typeof input !== 'string') throw new TypeError('hashBase62() expects a string.');
     return bytesToBase62(murmur3x64_128(encodeUtf8(input), seed), length);
 }
