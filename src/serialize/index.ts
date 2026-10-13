@@ -1,0 +1,1 @@
+export { stableStringify, stableStringify as stringify, MAX_DEPTH } from './stable-stringify';
