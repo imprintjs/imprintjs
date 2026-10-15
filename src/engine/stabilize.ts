@@ -21,7 +21,8 @@ export const VOLATILE_RULES: readonly StabilityRule[] = [
     { paths: ['webrtc.local_ip_leak', 'webrtc.candidate_type', 'webrtc.sdp_hash'] },
     { paths: ['speech.voice_count', 'speech.remote_voice_count', 'speech.default_voice_uri'] }, 
     { paths: ['screen.resolution'], browsers: ['desktop'] },           
-    { paths: ['speech'], browsers: ['brave', 'firefox'] },              
+    { paths: ['speech'], browsers: ['brave', 'firefox'] },
+    { paths: ['locales.languages'] },              
 ];
 
 export const PROFILE_RULES: Readonly<Record<StabilizeProfile, readonly StabilityRule[]>> = {

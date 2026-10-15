@@ -23,7 +23,10 @@ const compile = (extra = {}) => [
     typescript({ tsconfig: './tsconfig.build.json', ...extra }),
     replace({
         preventAssignment: true,
-        values: { __SDK_VERSION__: JSON.stringify(pkg.version) },
+        values: { 
+            __SDK_NAME__: JSON.stringify(pkg.name),
+            __SDK_VERSION__: JSON.stringify(pkg.version)
+        },
     }),
 ];
 
