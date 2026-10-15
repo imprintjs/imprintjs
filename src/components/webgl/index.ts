@@ -1,4 +1,3 @@
-import type { WebglComponent } from '../../types/components';
 import { hash, hashBytes } from '../../hash';
 import { stableStringify } from '../../serialize';
 import { createCanvas } from '../../utils/canvas';

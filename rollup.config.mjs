@@ -24,8 +24,8 @@ const compile = (extra = {}) => [
     replace({
         preventAssignment: true,
         values: { 
-            __SDK_NAME__: JSON.stringify(pkg.name),
-            __SDK_VERSION__: JSON.stringify(pkg.version)
+            __IMPRINTJS_SDK_NAME__: JSON.stringify(pkg.name),
+            __IMPRINTJS_SDK_VERSION__: JSON.stringify(pkg.version)
         },
     }),
 ];
