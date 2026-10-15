@@ -3,6 +3,7 @@ export type ImprintErrorCode =
     | 'component_timeout'      // a component did not finish in `timeout` ms
     | 'component_error'        // a component threw / rejected / returned non-JSON data
     | 'component_unsupported'  // the browser does not offer the API (component returned null)
+    | 'empty_fingerprint';     // nothing left to hash, so no visitor_id could be 
 
 export interface ImprintError {
     code: ImprintErrorCode;
